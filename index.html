@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio Maarten Faiz</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(120deg, #0d1117, #161b22);
+            color: #e5e5e5;
+        }
+
+        header {
+            background: #111;
+            color: #e5e5e5;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            text-align: center;
+            position: relative;
+        }
+
+        header img {
+            width: 120px;
+            height: auto;
+            border-radius: 50%;
+            border: 3px solid #f7931a;
+            margin-bottom: 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-family: 'Orbitron', sans-serif;
+            background: linear-gradient(90deg, #f7931a, #8e44ad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .spotify-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+        }
+
+        .spotify-logo:hover {
+            transform: rotate(360deg);
+        }
+
+        .intro {
+            font-size: 1.2em;
+            margin: 15px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            color: #a6a6a6;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #e5e5e5;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: 2px solid transparent;
+            border-radius: 25px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.1);
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav ul li a .icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        nav ul li a:hover {
+            background: linear-gradient(90deg, #f7931a, #ffcc80);
+            color: #000;
+            border-color: #f7931a;
+            transform: scale(1.1);
+        }
+
+        .close-btn {
+            display: none;
+            font-size: 1.5em;
+            cursor: pointer;
+            margin-left: 15px;
+        }
+
+        section {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            background: #1f1f1f;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            display: none;
+        }
+
+        section.active {
+            display: block;
+        }
+
+        section h2 {
+            border-bottom: 2px solid #f7931a;
+            padding-bottom: 10px;
+            color: #f7931a;
+            font-weight: bold;
+        }
+
+        .market {
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 900px;
+            background: #1f1f1f;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .market h2 {
+            color: #00cc66;
+            margin-bottom: 20px;
+        }
+
+        .market p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: #111;
+            color: #a6a6a6;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            header img {
+                width: 100px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            .spotify-logo {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="foto-saya.jpg" alt="Foto Maarten Faiz">
+        <h1>Maarten Faiz</h1>
+        <img src="spotify-logo.png" alt="Spotify Logo" class="spotify-logo" onclick="window.open('https://open.spotify.com/user/31zk4c4ivgxezqtcp4tszfvpgphy?si=XjUJ_AVUSK2OtEpCPUEFLQ&nd=1&dlsi=ef6e417dd03642bc', '_blank')">
+        <p id="intro" class="intro"></p>
+        <nav>
+            <ul>
+                <li><a href="#" onclick="showSection('about')"><img src="btc-icon.png" alt="BTC" class="icon"> about me</a></li>
+                <li><a href="#" onclick="showSection('hobbies')"><img src="eth-icon.png" alt="ETH" class="icon"> hobbies</a></li>
+                <li><a href="#" onclick="showSection('contact')"><img src="usd-icon.png" alt="USD" class="icon"> contact</a></li>
+                <li class="close-btn" id="closeBtn" onclick="resetView()">X</li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="about" class="section">
+        <h2>about me</h2>
+        <p>Halo! Saya adalah Maarten Faiz, seorang pelajar dengan ketertarikan pada teknologi, desain, dan crypto.</p>
+    </section>
+
+    <section id="hobbies" class="section">
+        <h2>hobii</h2>
+        <p>Di waktu luang, saya suka coding, desain grafis bermain gitar, dan mempelajari perkembangan dunia blockchain.</p>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>contact</h2>
+        <p>Email: faiz@mfaiz.my.id</p>
+        <p>Instagram: @maartenpaiss</p>
+    </section>
+
+    <div class="market" id="market">
+        <h2>Real-Time BTC Market</h2>
+        <p id="btcPrice">Loading BTC Price...</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Maarten Faiz. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        const introText = document.getElementById('intro');
+        const sections = document.querySelectorAll('section');
+        const closeBtn = document.getElementById('closeBtn');
+        const btcPriceElement = document.getElementById('btcPrice');
+
+        function showSection(section) {
+            introText.style.opacity = 0;
+            sections.forEach(sec => sec.classList.remove('active'));
+            closeBtn.style.display = 'inline';
+
+            const target = document.getElementById(section);
+            if (target) target.classList.add('active');
+        }
+
+        function resetView() {
+            introText.style.opacity = 1;
+            introText.innerHTML = "just a teen with some big dreams!";
+            sections.forEach(sec => sec.classList.remove('active'));
+            closeBtn.style.display = 'none';
+        }
+
+        function typeWriter(text, i, fnCallback) {
+            if (i < text.length) {
+                introText.innerHTML = text.substring(0, i + 1);
+                setTimeout(() => typeWriter(text, i + 1, fnCallback), 100);
+            } else if (fnCallback) {
+                setTimeout(fnCallback, 700);
+            }
+        }
+
+        function startAnimation() {
+            introText.style.opacity = 1;
+            typeWriter("Just a teen with some big dreams!", 0, () => {
+                setTimeout(startAnimation, 3000);
+            });
+        }
+
+        async function fetchBTCPrice() {
+            try {
+                const response = await fetch('https://api.coindesk.com/v1/bpi/currentprice/BTC.json');
+                const data = await response.json();
+                const price = data.bpi.USD.rate;
+                btcPriceElement.textContent = `BTC/USD: $${price}`;
+            } catch (error) {
+                btcPriceElement.textContent = 'Failed to fetch BTC price.';
+            }
+        }
+
+        setInterval(fetchBTCPrice, 60000); // Update price every minute
+        fetchBTCPrice(); // Fetch price on load
+        startAnimation();
+    </script>
+</body>
+</html>
